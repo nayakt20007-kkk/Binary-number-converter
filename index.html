@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101936">
+  <meta name="description" content="An interactive educational tool to convert binary, decimal, octal and hexadecimal numbers.">
+  <title>NumberNest | Number System Converter</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="NumberNest home">
+      <span class="brand-icon">01</span>
+      <span>Number<span class="brand-accent">Nest</span></span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="#converter">Converter</a>
+      <a href="#learn">Learn</a>
+      <a href="#examples">Examples</a>
+    </nav>
+    <a class="header-cta" href="#converter">Start Converting <span>↗</span></a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-glow hero-glow-one"></div>
+      <div class="hero-glow hero-glow-two"></div>
+      <div class="hero-content">
+        <div class="eyebrow"><span class="status-dot"></span> YOUR INTERACTIVE DIGITAL ELECTRONICS LAB</div>
+        <h1>Numbers made<br> <span class="gradient-text">simple.</span></h1>
+        <p class="hero-description">
+          Explore the language of computers. Convert between binary,
+          decimal, octal and hexadecimal with clear, step-by-step learning.
+        </p>
+        <div class="hero-actions">
+          <a class="primary-button" href="#converter">Try the Converter <span>→</span></a>
+          <a class="text-button" href="#learn">Explore the basics ↓</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>04</strong><span>Number systems</span></div>
+          <div><strong>∞</strong><span>Numbers to explore</span></div>
+          <div><strong>100%</strong><span>Free to learn</span></div>
+        </div>
+      </div>
+      <div class="hero-art" aria-label="Illustration of number systems">
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="orbit-center"><span>01</span><span>10</span><span>11</span></div>
+        <div class="float-card float-card-binary"><small>BINARY · BASE 2</small><strong>101101</strong><span>Only 0 and 1</span></div>
+        <div class="float-card float-card-decimal"><small>DECIMAL · BASE 10</small><strong>45</strong><span>Everyday numbers</span></div>
+        <div class="float-card float-card-hex"><small>HEXADECIMAL · BASE 16</small><strong>2D</strong><span>Compact representation</span></div>
+      </div>
+    </section>
+
+    <section class="converter-section section-wrap" id="converter">
+      <div class="section-heading">
+        <div><span class="section-kicker">THE CONVERSION STUDIO</span><h2>Convert anything.</h2></div>
+        <p>Choose your number system, enter a value, and let the magic happen.</p>
+      </div>
+
+      <div class="converter-card">
+        <div class="converter-topline">
+          <div><span class="live-dot"></span> LIVE CONVERTER</div>
+          <span class="secure-label">● Runs in your browser</span>
+        </div>
+        <div class="converter-controls">
+          <div class="field-group">
+            <label for="fromBase">Convert from</label>
+            <select id="fromBase">
+              <option value="2">Binary (Base 2)</option>
+              <option value="10" selected>Decimal (Base 10)</option>
+              <option value="8">Octal (Base 8)</option>
+              <option value="16">Hexadecimal (Base 16)</option>
+            </select>
+          </div>
+          <button id="swapBases" class="swap-button" type="button" aria-label="Swap number systems" title="Swap number systems">⇄</button>
+          <div class="field-group">
+            <label for="toBase">Convert to</label>
+            <select id="toBase">
+              <option value="2" selected>Binary (Base 2)</option>
+              <option value="10">Decimal (Base 10)</option>
+              <option value="8">Octal (Base 8)</option>
+              <option value="16">Hexadecimal (Base 16)</option>
+            </select>
+          </div>
+        </div>
+        <div class="number-entry">
+          <label for="numberInput">Your number</label>
+          <div class="input-shell">
+            <input id="numberInput" type="text" inputmode="text" autocomplete="off" spellcheck="false" placeholder="e.g. 1010" value="10" aria-describedby="inputHint errorMessage">
+            <button id="clearInput" class="clear-button" type="button" aria-label="Clear input">×</button>
+          </div>
+          <div class="input-meta"><span id="inputHint">Use digits 0–9 for decimal numbers.</span><span id="errorMessage" class="error-message" role="alert"></span></div>
+        </div>
+        <div class="convert-divider"><span>CONVERSION RESULT</span></div>
+        <div class="result-panel">
+          <div><span id="resultLabel">BINARY · BASE 2</span><div id="resultValue" class="result-value" aria-live="polite">1010</div></div>
+          <button id="copyResult" class="copy-button" type="button"><span>▢</span> Copy result</button>
+        </div>
+        <div class="result-footer"><span class="result-check">✓</span> <span id="resultNote">10 in decimal is 1010 in binary.</span></div>
+      </div>
+
+      <div class="system-strip">
+        <div class="system-chip binary-chip"><span>01</span><div><strong>Binary</strong><small>Base 2</small></div></div>
+        <div class="system-chip decimal-chip"><span>10</span><div><strong>Decimal</strong><small>Base 10</small></div></div>
+        <div class="system-chip octal-chip"><span>07</span><div><strong>Octal</strong><small>Base 8</small></div></div>
+        <div class="system-chip hex-chip"><span>AF</span><div><strong>Hexadecimal</strong><small>Base 16</small></div></div>
+      </div>
+    </section>
+
+    <section class="examples-section section-wrap" id="examples">
+      <div class="section-heading">
+        <div><span class="section-kicker">ONE CLICK, NEW DISCOVERY</span><h2>Try a quick example.</h2></div>
+        <p>Pick a value to see how it looks in another number system.</p>
+      </div>
+      <div class="example-grid">
+        <button class="example-card example-blue" type="button" data-value="1010" data-from="2" data-to="10"><span class="example-tag">BINARY → DECIMAL</span><strong>1010 <span>→</span> 10</strong><small>Four binary digits, one value.</small></button>
+        <button class="example-card example-purple" type="button" data-value="255" data-from="10" data-to="16"><span class="example-tag">DECIMAL → HEX</span><strong>255 <span>→</span> FF</strong><small>A familiar computer number.</small></button>
+        <button class="example-card example-teal" type="button" data-value="64" data-from="10" data-to="8"><span class="example-tag">DECIMAL → OCTAL</span><strong>64 <span>→</span> 100</strong><small>Explore base-eight notation.</small></button>
+      </div>
+    </section>
+
+    <section class="learn-section section-wrap" id="learn">
+      <div class="section-heading">
+        <div><span class="section-kicker">BUILD YOUR FOUNDATIONS</span><h2>Four systems. One idea.</h2></div>
+        <p>A number system uses a set of symbols and a base to represent values.</p>
+      </div>
+      <div class="learn-grid">
+        <article class="learn-card learn-binary"><div class="learn-symbol">01</div><span class="base-label">BASE 2</span><h3>Binary</h3><p>Uses only 0 and 1. Digital circuits use binary states to represent information.</p><div class="digit-row"><span>0</span><span>1</span></div></article>
+        <article class="learn-card learn-decimal"><div class="learn-symbol">10</div><span class="base-label">BASE 10</span><h3>Decimal</h3><p>The everyday number system, using ten digits from 0 through 9.</p><div class="digit-row"><span>0</span><span>1</span><span>…</span><span>9</span></div></article>
+        <article class="learn-card learn-octal"><div class="learn-symbol">07</div><span class="base-label">BASE 8</span><h3>Octal</h3><p>Uses digits from 0 through 7. Each octal digit corresponds to three binary bits.</p><div class="digit-row"><span>0</span><span>3</span><span>7</span></div></article>
+        <article class="learn-card learn-hex"><div class="learn-symbol">AF</div><span class="base-label">BASE 16</span><h3>Hexadecimal</h3><p>Uses 0–9 and A–F, where A represents 10 and F represents 15.</p><div class="digit-row"><span>0</span><span>9</span><span>A</span><span>F</span></div></article>
+      </div>
+    </section>
+
+    <section class="steps-section section-wrap">
+      <div class="steps-card">
+        <div class="steps-copy"><span class="section-kicker">LEARN WHILE YOU CONVERT</span><h2>Every answer has a story.</h2><p>Number conversion becomes easier when you understand the place values behind it. Try the converter, change the bases, and observe the results.</p><a class="primary-button" href="#converter">Explore a number <span>→</span></a></div>
+        <div class="place-value-demo"><span class="demo-label">A BINARY EXAMPLE</span><div class="place-digits"><span>1</span><span>0</span><span>1</span><span>0</span></div><div class="place-powers"><span>2³</span><span>2²</span><span>2¹</span><span>2⁰</span></div><div class="place-values"><span>8</span><span>0</span><span>2</span><span>0</span></div><div class="demo-equation">8 + 0 + 2 + 0 = <strong>10</strong></div><p>1010₂ = 10₁₀</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand" href="#"><span class="brand-icon">01</span><span>Number<span class="brand-accent">Nest</span></span></a>
+    <p>Made for curious minds and future digital electronics engineers.</p>
+    <span class="footer-note">LEARN · CONVERT · DISCOVER</span>
+  </footer>
+</body>
+</html>
